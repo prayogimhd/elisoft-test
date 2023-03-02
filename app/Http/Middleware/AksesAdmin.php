@@ -17,7 +17,7 @@ class AksesAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Session::get('id')) {
+        if (Session::get('login') != true) {
             return redirect('/');
         }
         return $next($request);
